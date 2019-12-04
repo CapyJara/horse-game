@@ -9,7 +9,7 @@ const Game = ({ lines, setLines }) => {
   const scrollDown = () => {
     setLines(lines++);
     if(colorNumber > colors.length) colorNumber = 0;
-    if(lines > 15) document.querySelector(`.${styles.Legs}`).lastChild.remove();
+    if(lines > 12) document.querySelector(`.${styles.Legs}`).lastChild.remove();
 
     const legs = document.querySelector(`.${styles.Legs}`);
     const leg = document.createElement('pre');
@@ -21,7 +21,7 @@ const Game = ({ lines, setLines }) => {
 
   
   return (
-    <div className={styles.Game} onWheel={scrollDown}>
+    <div className={styles.Game} onWheel={scrollDown} onTouchMove={scrollDown} >
       <section>
         <div>
           <pre>  (\w/)</pre>
