@@ -1,0 +1,14 @@
+.Game {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    p {
+      margin-bottom: 1em;
+    }
+  }
+}

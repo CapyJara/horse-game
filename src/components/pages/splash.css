@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+}
+
+.Splash {
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  height: 100vh;
+  width: 100vw;
+
+  section {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      height: 90%;
+      width: 90%;
+      background: lightblue;
+    }
+  }
+}
