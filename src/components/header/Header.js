@@ -1,8 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './header.css';
 
-const Header = () => {
+const Header = ({ lines }) => {
   return (
     <header className={styles.Header}>
       <section>
@@ -15,12 +15,16 @@ const Header = () => {
       </section>
       <section>
         <span>
-          <h2>321</h2>
+          <h2>{lines}</h2>
           <h3>LINES</h3>
         </span>
       </section>
     </header>
   );
+};
+
+Header.propTypes = {
+  lines: PropTypes.number.isRequired
 };
 
 export default Header;
