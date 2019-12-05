@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './game.css';
+import Modal from '../modal/Modal';
 
+let startTime = null;
+let lastTouchTime = null;
+let timeFromStart = null;
 let colorNumber = 0;
+
 const Game = ({ lines, setLines }) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#2E2B5F', '#8B00FF'];
+
+  const startTimer = () => {
+    timeFromStart = 1;
+    setInterval(() => {
+      timeFromStart += 1;
+    }, 1000);
+  };
   
   const scrollDown = () => {
+    if(!startTime) {
+      startTime = Date.now();
+      startTimer();
+    }
+    else { lastTouchTime = timeFromStart; }
+    
     setLines(lines++);
     if(colorNumber > colors.length) colorNumber = 0;
-    if(lines > 12) document.querySelector(`.${styles.Legs}`).lastChild.remove();
+    if(lines > 15) document.querySelector(`.${styles.Legs}`).lastChild.remove();
 
     const legs = document.querySelector(`.${styles.Legs}`);
     const leg = document.createElement('pre');
@@ -19,10 +39,17 @@ const Game = ({ lines, setLines }) => {
     colorNumber++;
   };
 
+  const finish = () => {
+    setModalIsOpen(true);
+  };
   
   return (
     <div className={styles.Game} onWheel={scrollDown} onTouchMove={scrollDown} >
-      <section>
+      <section className={styles.Finish}>
+        <button onClick={finish}>End Game</button>
+      </section>
+
+      <section className={styles.Horse}>
         <div>
           <pre>  (\w/)</pre>
           <pre>  (..  \</pre>
@@ -38,6 +65,13 @@ const Game = ({ lines, setLines }) => {
           <pre>     &#x2F;&#x2F;_| &#x2F;&#x2F;_|   </pre>
         </div>
       </section>
+
+      <Modal 
+        isOpen={modalIsOpen}
+        setModalIsOpen={setModalIsOpen}
+        lastTouchTime={lastTouchTime}
+        lines={lines}
+      />
     </div>
   );
 };

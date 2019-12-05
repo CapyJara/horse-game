@@ -1,17 +1,28 @@
 .Game {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow-y: hidden;
+  display: grid;
+  grid-template-rows: 10%;
 
   touch-action: none;
 
-  section {
+  .Finish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: lightblue;
+
+    button {
+      background: white;
+    }
+  }
+
+  .Horse {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     background: lightblue;
 
     .Legs {
@@ -21,6 +32,5 @@
     div {
       margin-bottom: 1em;
     }
-
   }
 }
