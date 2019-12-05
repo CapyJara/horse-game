@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+}
+
+.Splash {
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  height: 100vh;
+  width: 100vw;
+}

@@ -1,0 +1,32 @@
+.Header {
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+  background: lightyellow;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .burger-icon {
+    width: 3em;
+    height: .5em;
+    background: black;
+    margin: .2em;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    width: 70%;
+    text-align: center;
+  }
+
+}

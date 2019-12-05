@@ -1,0 +1,36 @@
+.Game {
+  display: grid;
+  grid-template-rows: 10%;
+
+  touch-action: none;
+
+  .Finish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: lightblue;
+
+    button {
+      background: white;
+    }
+  }
+
+  .Horse {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    background: lightblue;
+
+    .Legs {
+      margin-bottom: 0;
+    }
+    
+    div {
+      margin-bottom: 1em;
+    }
+  }
+}
