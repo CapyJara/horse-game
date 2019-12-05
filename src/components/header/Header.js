@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './header.css';
 
 const Header = ({ lines }) => {
   return (
     <header className={styles.Header}>
       <section>
+        {/* <div className={styles['burger-icon']}></div>
         <div className={styles['burger-icon']}></div>
-        <div className={styles['burger-icon']}></div>
-        <div className={styles['burger-icon']}></div>
+        <div className={styles['burger-icon']}></div> */}
       </section>
       <section>
-        <h1>How Low Can You Scroll</h1>
+        <Link to="/" >How Low Can You Scroll</Link>
       </section>
       <section>
         <span>

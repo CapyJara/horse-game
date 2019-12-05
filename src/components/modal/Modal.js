@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './modal.css';
 import { postGame } from '../../services/horseApi';
@@ -43,7 +44,9 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
               maxLength="20"
               required 
             />
-            <button>Submit your score</button>
+            <button>
+              <Link to="/leader/10">Submit your score</Link>
+            </button>
           </div>
         </form>
 

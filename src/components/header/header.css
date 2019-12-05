@@ -24,9 +24,12 @@
     align-items: center;
   }
 
-  h1 {
+  a {
     width: 70%;
     text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
   }
 
 }
