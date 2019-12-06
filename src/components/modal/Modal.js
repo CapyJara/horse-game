@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import styles from './modal.css';
 import { postGame } from '../../services/horseApi';
 
-const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
+const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
   const [codeName, setCodeName] = useState('');
-
   const handleCodeNameChange = ({ target }) => {
     setCodeName(target.value);
   };
-
+  
   const handleSubmit = e => {
     e.preventDefault();
     postGame({
-      score: lines,
+      score: lines || 0,
       name: codeName,
-      totalTime: lastTouchTime
+      totalTime: lastTouchTime || 0
     })
-      .then(res => console.log(res));
+      .then(() => history.push(`/leader/100/${codeName}/${lines}`));
+    
   };
 
   return (  
@@ -28,10 +28,10 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
           <button onClick={() => setModalIsOpen(false)}>X</button>
         </section>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <header>
             <h1>Holy Guacamole!!</h1>
-            <h3>you scored</h3>
+            <h2>you scored</h2>
             <h3>{lines} lines</h3>
           </header>
 
@@ -41,7 +41,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
               placeholder="Enter your CodeName"
               onChange={handleCodeNameChange}
               maxLength="20"
-              required 
+              required
             />
             <button>Submit your score</button>
           </div>
@@ -56,7 +56,8 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   setModalIsOpen: PropTypes.func.isRequired,
   lines: PropTypes.number.isRequired,
-  lastTouchTime: PropTypes.number
+  lastTouchTime: PropTypes.number,
+  history: PropTypes.object
 };
 
 export default Modal;

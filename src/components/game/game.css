@@ -1,6 +1,6 @@
 .Game {
   display: grid;
-  grid-template-rows: 10%;
+  grid-template-rows: 10vh;
 
   touch-action: none;
 
@@ -10,10 +10,10 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    background: lightblue;
 
     button {
       background: white;
+      color: black;
     }
   }
 
@@ -23,7 +23,6 @@
     align-items: flex-end;
     height: 100%;
     width: 100%;
-    background: lightblue;
 
     .Legs {
       margin-bottom: 0;

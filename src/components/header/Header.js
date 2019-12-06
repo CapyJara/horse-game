@@ -1,30 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './header.css';
 
 const Header = ({ lines }) => {
+  const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
   return (
-    <header className={styles.Header}>
+    <div className={styles.Header}>
       <section>
+        {/* <div className={styles['burger-icon']}></div>
         <div className={styles['burger-icon']}></div>
-        <div className={styles['burger-icon']}></div>
-        <div className={styles['burger-icon']}></div>
+        <div className={styles['burger-icon']}></div> */}
       </section>
+      <header>
+        <Link to="/" >{header}</Link>
+      </header>
       <section>
-        <h1>How Low Can You Scroll</h1>
-      </section>
-      <section>
+        {lines >= 0 && 
         <span>
           <h2>{lines}</h2>
           <h3>LINES</h3>
-        </span>
+        </span>}
       </section>
-    </header>
+    </div>
   );
 };
 
 Header.propTypes = {
-  lines: PropTypes.number.isRequired
+  lines: PropTypes.number
 };
 
 export default Header;

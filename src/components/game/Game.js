@@ -8,7 +8,7 @@ let lastTouchTime = null;
 let timeFromStart = null;
 let colorNumber = 0;
 
-const Game = ({ lines, setLines }) => {
+const Game = ({ lines, setLines, history }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const colors = ['#FF0000', '#FF7F00', '#FFFF00', '#00FF00', '#0000FF', '#2E2B5F', '#8B00FF'];
@@ -29,7 +29,7 @@ const Game = ({ lines, setLines }) => {
     
     setLines(lines++);
     if(colorNumber > colors.length) colorNumber = 0;
-    if(lines > 15) document.querySelector(`.${styles.Legs}`).lastChild.remove();
+    if(lines > 13) document.querySelector(`.${styles.Legs}`).lastChild.remove();
 
     const legs = document.querySelector(`.${styles.Legs}`);
     const leg = document.createElement('pre');
@@ -71,6 +71,7 @@ const Game = ({ lines, setLines }) => {
         setModalIsOpen={setModalIsOpen}
         lastTouchTime={lastTouchTime}
         lines={lines}
+        history={history}
       />
     </div>
   );
@@ -78,7 +79,8 @@ const Game = ({ lines, setLines }) => {
 
 Game.propTypes = {
   setLines: PropTypes.func.isRequired,
-  lines: PropTypes.number.isRequired
+  lines: PropTypes.number.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 export default Game;

@@ -5,13 +5,19 @@ import {
   Route
 } from 'react-router-dom';
 import Splash from '../components/pages/Splash';
+import LeaderBoard from './pages/LeaderBoard';
+import styles from './app.css';
 
 export default function App() {
   return (
-    <Router >
-      <Switch>
-        <Route exact path="/" component={Splash} />
-      </Switch>
-    </Router>
+    <section className={styles.Main}>
+      <Router >
+        <Switch>
+          <Route exact path="/" component={Splash} />
+          <Route path="/leader/:num/:name/:score" component={LeaderBoard} />
+          <Route path="/leader/:num/" component={LeaderBoard} />
+        </Switch>
+      </Router>
+    </section>
   );
 }

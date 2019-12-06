@@ -1,11 +1,17 @@
 .Header {
   display: grid;
   grid-template-columns: 20% 1fr 20%;
-  background: lightyellow;
+
 
   section {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header {
+    display: flex;
     justify-content: center;
     align-items: center;
   }
@@ -24,9 +30,11 @@
     align-items: center;
   }
 
-  h1 {
+  a {
     width: 70%;
     text-align: center;
+    text-decoration: none;
+    font-size: 1.4em;
   }
 
 }
