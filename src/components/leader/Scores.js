@@ -15,12 +15,16 @@ const Scores = ({ scores, codeName, newScore }) => {
     );
   });
   return (
-    <ul className={styles.Scores}>
-      <li>
-        <Score name="CodeName" score="Score" rank="Rank" />
-      </li>
-      {scoreList}
-    </ul>
+    <div className={styles.Scores}>
+      <header>
+        <h3>Rank</h3>
+        <h3>Code Name</h3>
+        <h3> Score</h3>
+      </header>
+      <ul>
+        {scoreList}
+      </ul>
+    </div>
   );
 };
 
