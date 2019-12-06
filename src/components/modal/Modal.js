@@ -17,8 +17,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
       score: lines,
       name: codeName,
       totalTime: lastTouchTime
-    })
-      .then(res => console.log(res));
+    });
   };
 
   return (  
@@ -32,7 +31,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
         <form onSubmit={handleSubmit}>
           <header>
             <h1>Holy Guacamole!!</h1>
-            <h3>you scored</h3>
+            <h2>you scored</h2>
             <h3>{lines} lines</h3>
           </header>
 
@@ -44,9 +43,9 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime }) => {
               maxLength="20"
               required 
             />
-            <button>
-              <Link to="/leader/10">Submit your score</Link>
-            </button>
+            <Link to="/leader/10">
+              <button>Submit your score</button>
+            </Link>
           </div>
         </form>
 

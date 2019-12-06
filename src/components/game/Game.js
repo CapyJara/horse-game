@@ -29,7 +29,7 @@ const Game = ({ lines, setLines }) => {
     
     setLines(lines++);
     if(colorNumber > colors.length) colorNumber = 0;
-    if(lines > 15) document.querySelector(`.${styles.Legs}`).lastChild.remove();
+    if(lines > 13) document.querySelector(`.${styles.Legs}`).lastChild.remove();
 
     const legs = document.querySelector(`.${styles.Legs}`);
     const leg = document.createElement('pre');

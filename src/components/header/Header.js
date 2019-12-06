@@ -5,27 +5,28 @@ import styles from './header.css';
 
 const Header = ({ lines }) => {
   return (
-    <header className={styles.Header}>
+    <div className={styles.Header}>
       <section>
         {/* <div className={styles['burger-icon']}></div>
         <div className={styles['burger-icon']}></div>
         <div className={styles['burger-icon']}></div> */}
       </section>
+      <header>
+        <Link to="/" >How Long Can You Scroll</Link>
+      </header>
       <section>
-        <Link to="/" >How Low Can You Scroll</Link>
-      </section>
-      <section>
+        {lines >= 0 && 
         <span>
           <h2>{lines}</h2>
           <h3>LINES</h3>
-        </span>
+        </span>}
       </section>
-    </header>
+    </div>
   );
 };
 
 Header.propTypes = {
-  lines: PropTypes.number.isRequired
+  lines: PropTypes.number
 };
 
 export default Header;

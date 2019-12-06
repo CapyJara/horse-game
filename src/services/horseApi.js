@@ -17,6 +17,17 @@ const postGame = (body) => {
     });
 };
 
+const getTopScores = (num) => {
+  // eslint-disable-next-line no-undef
+  return fetch(`${BASE_URL}/api/v1/game/top/${num}`)
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'unable to post new game';
+      return json;
+    });
+};
+
 export {
-  postGame
+  postGame,
+  getTopScores
 };

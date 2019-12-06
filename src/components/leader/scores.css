@@ -1,0 +1,15 @@
+.Scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding: 0;
+  overflow: scroll;
+
+  li {
+    width: 80%;
+    list-style: none;
+    margin-bottom: 1em;
+  }
+}
