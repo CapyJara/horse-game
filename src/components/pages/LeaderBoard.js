@@ -9,9 +9,11 @@ const LeaderBoard = ({ match }) => {
   const [scores, setScores] = useState(null);
   const [num] = useState(match.params.num);
 
-  useEffect(async() => {
-    const scoreList = await getTopScores(match.params.num);
-    await setScores(scoreList);
+  useEffect(() => {
+    getTopScores(match.params.num)
+      .then(res => {
+        setScores(res);
+      });
   }, [num]);
 
   return (
@@ -19,7 +21,7 @@ const LeaderBoard = ({ match }) => {
       <Header/>
       <section>
         <h1>Top {num} Scores All Time</h1>
-        {scores && <Scores scores={scores} />}
+        {scores && <Scores scores={scores} codeName={match.params.name} newScore={match.params.score} />}
       </section>
     </div>
   );

@@ -14,8 +14,8 @@ const Score = ({ name, score, rank }) => {
 
 Score.propTypes = {
   name: PropTypes.string.isRequired,
-  score: PropTypes.oneOf(['Number', 'String']).isRequired,
-  rank: PropTypes.oneOf(['Number', 'String']).isRequired
+  score: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  rank: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
 };
 
 export default Score;

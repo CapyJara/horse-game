@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import Score from './Score';
 import styles from './scores.css';
 
-const Scores = ({ scores }) => {
+const Scores = ({ scores, codeName, newScore }) => {
   const scoreList = scores.map(({ name, score }, i) => {
+    let newGame = '';
+    if(codeName === name && newScore == score) newGame = styles.NewGame;
+
     return (
-      <li key={`${name}-${score}`}>
+      <li key={`${name}-${score}`} className={newGame}>
         <Score name={name} score={score} rank={i}/>
       </li>
     );
@@ -22,7 +25,9 @@ const Scores = ({ scores }) => {
 };
 
 Scores.propTypes = {
-  scores: PropTypes.array.isRequired
+  scores: PropTypes.array.isRequired,
+  codeName: PropTypes.string.isRequired,
+  newScore: PropTypes.string.isRequired
 };
 
 export default Scores;

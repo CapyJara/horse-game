@@ -10,6 +10,12 @@
   li {
     width: 80%;
     list-style: none;
-    margin-bottom: 1em;
+    margin-top: .5em;
+    margin-bottom: .5em;
   }
+}
+
+.NewGame {
+  color: yellow !important;
+  font-size: 2em;
 }
