@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-const BASE_URL = `${process.env.API_URL || 'http://horse-game.herokuapp.com/'}`;
+const BASE_URL = 'http://horse-game.herokuapp.com';
 
 const postGame = (body) => {
   // eslint-disable-next-line no-undef
