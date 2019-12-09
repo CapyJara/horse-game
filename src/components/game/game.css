@@ -1,0 +1,35 @@
+.Game {
+  display: grid;
+  grid-template-rows: 10vh;
+
+  touch-action: none;
+
+  .Finish {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    button {
+      background: white;
+      color: black;
+    }
+  }
+
+  .Horse {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+
+    .Legs {
+      margin-bottom: 0;
+    }
+    
+    div {
+      margin-bottom: 1em;
+    }
+  }
+}

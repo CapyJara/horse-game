@@ -1,0 +1,6 @@
+.Splash {
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  height: 95vh;
+  width: 100%;
+}

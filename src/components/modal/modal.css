@@ -1,0 +1,79 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .Content {
+    width: 95%;
+    height: 95%;
+    display: grid;
+    grid-template-rows: 8% 1fr;
+    background: rgba(90, 0, 0, 0.959);
+    border-radius: 1em;
+  }
+
+  .Close {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 1em;
+  }
+
+  form {
+    display: grid;
+    grid-template-rows: 40% 1fr;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: 2em;
+        margin-top: 1em;
+      }
+
+      h2 {
+        font-size: 1.3em;
+      }
+
+      h3 {
+        font-size: 2.2em;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input {
+      height: 3em;
+      width: 15em;
+      text-align: center;
+      font-size: 1.2em;
+      padding: 0;
+      color: black;
+    }
+
+    button {
+      background: white;
+      height: 3em;
+      width: 15em;
+      margin-top: 20px;
+      color: black;
+      font-size: 1em;
+    }
+  }
+
+}
+
+.Hidden {
+  display: none;
+}

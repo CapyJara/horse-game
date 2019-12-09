@@ -1,0 +1,17 @@
+.LeaderBoard {
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  height: 95vh;
+  width: 100%;
+  
+  h1 {
+    margin-bottom: 1em;
+  }
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}

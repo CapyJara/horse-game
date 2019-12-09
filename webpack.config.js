@@ -1,9 +1,12 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const DotEnv = require('dotenv-webpack');
+const CopyPlugin = require('copy-webpack-plugin');
+require('babel-polyfill');
 
 // eslint-disable-next-line
 module.exports = {
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     filename: 'bundle.[hash].js',
     publicPath: '/'
@@ -14,7 +17,11 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new DotEnv({ systemvars: true }),
+    new CopyPlugin([
+      { from: 'public' },
+    ])
   ],
   module: {
     rules: [
@@ -57,7 +64,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpeg|jpg|png|svg)$/,
+        test: /\.(jpeg|jpg|png|svg|gif)$/,
         use: {
           loader: 'url-loader',
           options: { limit: 1000 },
