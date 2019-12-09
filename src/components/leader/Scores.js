@@ -4,10 +4,14 @@ import Score from './Score';
 import styles from './scores.css';
 
 const Scores = ({ scores, codeName, newScore }) => {
+  const [message, setMessage] = useState('Sorry, you didn\'t make the top 100 :(');
 
   useEffect(() => {
     const currentScore = document.querySelector(`.${styles.NewGame}`);
-    if(currentScore) currentScore.scrollIntoView('alignTo');
+    if(currentScore) {
+      setMessage('You Made the top 100!!');
+      currentScore.scrollIntoView('alignTo');
+    }
   }, []);
 
   const scoreList = scores.map(({ name, score }, i) => {
@@ -34,6 +38,9 @@ const Scores = ({ scores, codeName, newScore }) => {
       <ul>
         {scoreList}
       </ul>
+      <section>
+        <h2>{message}</h2>
+      </section>
     </div>
   );
 };

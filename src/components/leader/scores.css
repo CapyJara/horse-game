@@ -14,6 +14,11 @@
   100%   { color: #ff0000; }
 }
 
+@keyframes hidden-after-landing {
+  0% { opacity: 1; z-index: 1; }
+  100% { opacity: 0; z-index: -1; }
+}
+
 .Scores {
   display: flex;
   flex-direction: column;
@@ -48,6 +53,28 @@
     p {
       animation: rainbow-colors 5s infinite;
       font-size: 2em;
+    }
+  }
+
+  section {
+    position: absolute;
+    top: 15em;
+    background: rgba(71, 20, 119, 1);
+    height: 40vh;
+    width: 60vw;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: hidden-after-landing 3.5s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+
+    h2 {
+      font-size: 2em;
+      padding: 1em;
+      display: flex;
+      text-align: center;
     }
   }
   
