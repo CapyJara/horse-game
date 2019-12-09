@@ -2,21 +2,27 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './modal.css';
 import { postGame } from '../../services/horseApi';
+import loadingSpinner from '../../../assets/unicorn-5.png';
 
 const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
   const [codeName, setCodeName] = useState('');
+  const [loading, setLoading] = useState(false);
   const handleCodeNameChange = ({ target }) => {
     setCodeName(target.value);
   };
   
   const handleSubmit = e => {
     e.preventDefault();
+    setLoading(true);
     postGame({
       score: lines || 0,
       name: codeName,
       totalTime: lastTouchTime || 0
     })
-      .then(() => history.push(`/leader/100/${codeName}/${lines}`));
+      .then(() => {
+        setLoading(false);
+        history.push(`/leader/100/${codeName}/${lines}`);
+      });
     
   };
 
@@ -35,7 +41,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
             <h3>{lines} lines</h3>
           </header>
 
-          <div>
+          {!loading && <div>
             <input 
               type="text"
               placeholder="Enter your CodeName"
@@ -44,7 +50,10 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
               required
             />
             <button>Submit your score</button>
-          </div>
+          </div>}
+          {loading && <div className={styles.Loading}>
+            <img src={loadingSpinner} />
+          </div>}
         </form>
 
       </section>
