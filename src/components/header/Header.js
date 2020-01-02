@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import styles from './header.css';
 import { achievement } from '../../../assets/badges';
 
-const Header = ({ lines }) => {
+const Header = ({ lines, history }) => {
   const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
   const [badge, setBadge] = useState(achievement(lines));
   const [levelUp, setLevelUp] = useState('');
+
+  const page = history.location.pathname.includes('leader') ? 'leader' : 'game';
+  console.log(page);
 
   useEffect(() => {
     setTimeout(() => {
@@ -27,22 +30,34 @@ const Header = ({ lines }) => {
           <img src={badge} className={styles[levelUp]}/>  
         </div>}
       </section>
+
       <header>
         <Link to="/" >{header}</Link>
       </header>
-      <section>
-        {lines >= 0 && 
+
+      {page === 'game' &&
+      <section> 
         <span>
           <h2>{lines}</h2>
           <h3>LINES</h3>
-        </span>}
-      </section>
+        </span>
+      </section>}
+
+      {page === 'leader' && 
+      <section className={styles['Burger-icon']}>
+        <div>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>}
     </div>
   );
 };
 
 Header.propTypes = {
-  lines: PropTypes.number
+  lines: PropTypes.number,
+  history: PropTypes.object.isRequired
 };
 
-export default Header;
+export default withRouter(Header);
