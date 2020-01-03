@@ -18,7 +18,6 @@ const Scores = ({ scores, codeName, newScore }) => {
     let newGame = '';
     if(codeName === name && newScore == score) {
       newGame = styles.NewGame;
-      // setCurrentScore(true);
     }
 
     return (
