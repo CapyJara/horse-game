@@ -1,15 +1,15 @@
 import { success, pending, error } from './reducerHelpers';
 
 const initialState = {
-  newScore: null,
+  newGame: null,
   err: {},
   loading: false
 };
 
 const horseActions = {
-  NEW_SCORE: (state, action) => success(state, action, 'newScore'),
-  NEW_SCORE_PENDING: (state) => pending(state),
-  NEW_SCORE_ERROR: (state, action) => error(state, action)
+  NEW_GAME: (state, action) => success(state, action, 'newGame'),
+  NEW_GAME_PENDING: (state) => pending(state),
+  NEW_GAME_ERROR: (state, action) => error(state, action)
 };
 
 export default function reducer(state = initialState, action) {

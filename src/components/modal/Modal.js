@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './modal.css';
-import { postGame } from '../../services/horseApi';
+import { newGame } from '../../actions/horseActions';
 import loadingSpinner from '../../../assets/unicorn-5.png';
+import { getNewGame } from '../../selectors/horseSelectors';
+
 
 const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
+  const dispatch = useDispatch();
+  const postedGame = useSelector(getNewGame);
+  
   const [codeName, setCodeName] = useState('');
   const [loading, setLoading] = useState(false);
   const handleCodeNameChange = ({ target }) => {
@@ -14,17 +20,19 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
   const handleSubmit = e => {
     e.preventDefault();
     setLoading(true);
-    postGame({
+    dispatch(newGame({
       score: lines || 0,
       name: codeName,
       totalTime: lastTouchTime || 0
-    })
-      .then(() => {
-        setLoading(false);
-        history.push(`/leader/100/${codeName}/${lines}`);
-      });
-    
+    }));
   };
+  
+  useEffect(() => {
+    if(postedGame) {
+      setLoading(false);
+      history.push(`/leader/100/${codeName}/${lines}`);
+    }
+  }, [postedGame]);
 
   return (  
     <div className={isOpen ? styles.Modal : styles.Hidden}>
