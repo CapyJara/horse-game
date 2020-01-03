@@ -19,7 +19,7 @@ const Burger = () => {
 
       <div className={isOpen ? styles.Menu : styles.Close}>
         <p onClick={close}>X</p>
-        <Link onClick={close} id="home-burger" to="/leader/100">Leader Board</Link>
+        <Link onClick={close} id="home-burger" to="/leader">Leader Board</Link>
         <Link onClick={close} id="about-me-burger" to="/stats">Game Stats</Link>
       </div>
 
