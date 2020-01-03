@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './header.css';
 import { achievement } from '../../../assets/badges';
 import Burger from '../burger/Burger';
+import { reset } from '../../actions/horseActions';
 
 const Header = ({ lines, history }) => {
+  const dispatch = useDispatch();
   const page = history.location.pathname.includes('leader') ? 'leader' : 'game';
   
   const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
@@ -33,7 +36,7 @@ const Header = ({ lines, history }) => {
       </section>
 
       <header>
-        <Link to="/" >{header}</Link>
+        <Link to="/" onClick={() => dispatch(reset())}>{header}</Link>
       </header>
 
       {page === 'game' &&

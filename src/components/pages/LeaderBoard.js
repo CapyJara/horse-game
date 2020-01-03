@@ -1,36 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import Header from '../header/Header';
 import styles from './leaderBoard.css';
 import Scores from '../leader/Scores';
 import { setTopScores } from '../../actions/horseActions';
-import { getTopScores } from '../../selectors/horseSelectors';
-let didFetch = false;
+import { getTopScores, getNewGame } from '../../selectors/horseSelectors';
 
-const LeaderBoard = ({ match }) => {
+const LeaderBoard = () => {
   const dispatch = useDispatch();
+  const newGame = useSelector(getNewGame);
   const scores = useSelector(getTopScores);
-  const [num] = useState(match.params.num);
 
   useEffect(() => {
-    if(!didFetch) dispatch(setTopScores());
-    didFetch = true;
+    if(!scores) dispatch(setTopScores());
   });
-
+  
+  const name = newGame ? newGame.name : '';
+  const score = newGame ? newGame.score : '';
+  
   return (
     <div className={styles.LeaderBoard}>
       <Header/>
       {scores && <section>
-        <h1>Top {num} Scores All Time</h1>
-        {scores && <Scores scores={scores} codeName={match.params.name} newScore={match.params.score} />}
+        <h1>Top 100 Scores All Time</h1>
+        {scores && <Scores scores={scores} codeName={name} newScore={score} />}
       </section>}
     </div>
   );
-};
-
-LeaderBoard.propTypes = {
-  match: PropTypes.object.isRequired
 };
 
 export default LeaderBoard;

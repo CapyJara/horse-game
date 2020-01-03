@@ -9,6 +9,11 @@ export const [
 ] = createAction('POST_NEW_GAME', postGame);
 
 export const [
+  reset,
+  RESET
+] = createAction('RESET', () => ({ type: 'RESET' }));
+
+export const [
   setTopScores,
   SET_TOP_SCORES,
   SET_TOP_SCORES_PENDING,

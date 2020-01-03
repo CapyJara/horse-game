@@ -30,7 +30,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
   useEffect(() => {
     if(postedGame) {
       setLoading(false);
-      history.push(`/leader/100/${codeName}/${lines}`);
+      history.push('/leader');
     }
   });
 
