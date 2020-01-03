@@ -1,0 +1,88 @@
+.Burger {
+
+  .Icon {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: .2em;
+  }
+
+  .Burger-Slice {
+    height: .3em;
+    width: 2em;
+    background: yellow;
+    margin: .1em;
+    border-radius: 1em;
+  }
+
+  .Menu {
+    background: yellow;
+    position: absolute;
+    top: 0;
+    width: 15em;
+    bottom: 0;
+    right: 0;
+    animation: openMenu .4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+
+    a {
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-content: center;
+      font-size: 1.5em;
+      text-decoration: none;
+      color: black;
+    }
+
+    .Selected {
+      color: var(--light-green);
+      text-shadow: 1px 1px black;
+    }
+    
+    p {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      height: 2em;
+      width: 2em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: red;
+    }
+}
+
+.Close {
+  display: none;
+}
+}
+@keyframes openMenu {
+  0% {
+    width: 12em;
+    bottom: 0;
+    right: -80vw;
+  }
+  100% {
+    width: 12em;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@keyframes showArrow {
+  0% {
+    right: -70vw;
+  }
+  100% {
+    right: 6vw;
+  }
+}
+
+

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './modal.css';
-import { newGame } from '../../actions/horseActions';
+import { postNewGame } from '../../actions/horseActions';
 import loadingSpinner from '../../../assets/unicorn-5.png';
 import { getNewGame } from '../../selectors/horseSelectors';
 
@@ -20,7 +20,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
   const handleSubmit = e => {
     e.preventDefault();
     setLoading(true);
-    dispatch(newGame({
+    dispatch(postNewGame({
       score: lines || 0,
       name: codeName,
       totalTime: lastTouchTime || 0
@@ -32,7 +32,7 @@ const Modal = ({ isOpen, setModalIsOpen, lines, lastTouchTime, history }) => {
       setLoading(false);
       history.push(`/leader/100/${codeName}/${lines}`);
     }
-  }, [postedGame]);
+  });
 
   return (  
     <div className={isOpen ? styles.Modal : styles.Hidden}>

@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './header.css';
 import { achievement } from '../../../assets/badges';
+import Burger from '../burger/Burger';
 
 const Header = ({ lines, history }) => {
+  const page = history.location.pathname.includes('leader') ? 'leader' : 'game';
+  
   const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
   const [badge, setBadge] = useState(achievement(lines));
   const [levelUp, setLevelUp] = useState('');
 
-  const page = history.location.pathname.includes('leader') ? 'leader' : 'game';
-  console.log(page);
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,13 +45,7 @@ const Header = ({ lines, history }) => {
       </section>}
 
       {page === 'leader' && 
-      <section className={styles['Burger-icon']}>
-        <div>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </section>}
+      <Burger/>}
     </div>
   );
 };

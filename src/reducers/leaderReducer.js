@@ -7,9 +7,9 @@ const initialState = {
 };
 
 const leadersActions = {
-  GET_LEADERS: (state, action) => success(state, action, 'topHundred'),
-  GET_LEADERS_PENDING: (state) => pending(state),
-  GET_LEADERS_ERROR: (state, action) => error(state, action),
+  SET_TOP_SCORES: (state, action) => success(state, action, 'topHundred'),
+  SET_TOP_SCORES_PENDING: (state) => pending(state),
+  SET_TOP_SCORES_ERROR: (state, action) => error(state, action),
 };
 
 export default function reducer(state = initialState, action) {

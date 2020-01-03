@@ -17,9 +17,9 @@ const postGame = (body) => {
     });
 };
 
-const getTopScores = (num) => {
+const fetchTopScores = (num) => {
   // eslint-disable-next-line no-undef
-  return fetch(`${BASE_URL}/api/v1/game/top/${num}`)
+  return fetch(`${BASE_URL}/api/v1/game/top/100`)
     .then(res => ([res.ok, res.json()]))
     .then(([ok, json]) => {
       if(!ok) throw 'unable to post new game';
@@ -27,7 +27,22 @@ const getTopScores = (num) => {
     });
 };
 
+const fetchStats = () => {
+  // eslint-disable-next-line no-undef
+  return Promise.resolve({
+    times: [
+      { 'one': 38 },
+      { 'five': 28 },
+      { 'ten': 18 },
+      { 'thirty': 2 },
+      { 'hour': 4 }, 
+      { 'hourPlus': 6 }
+    ]
+  });
+};
+
 export {
   postGame,
-  getTopScores
+  fetchTopScores,
+  fetchStats
 };

@@ -28,22 +28,6 @@
     text-decoration: none;
     font-size: 1.4em;
   }
-
-  .Burger-icon {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-
-    div {
-      span {
-        height: .3em;
-        width: 2em;
-        background: yellow;
-        margin: .3em;
-      }
-    }
-  }
-
 }
 
 @keyframes level-up {
