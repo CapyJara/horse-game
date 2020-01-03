@@ -77,7 +77,7 @@ const Stats = () => {
           <h2>Games Played</h2>
           <p>{stats.gamesPlayed}</p>
           <h2>Longest Game Played</h2>
-          <p>{stats.longestTime[0]} Hour {stats.longestTime[1]} Minutes</p>
+          <p>{stats.longestGame[0]} Hour {stats.longestGame[1]} Minutes</p>
         </section>
       </section>
         }

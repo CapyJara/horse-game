@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 const BASE_URL = 'http://horse-game.herokuapp.com';
+// const BASE_URL = 'http://localhost:7891';
 
 const postGame = (body) => {
   // eslint-disable-next-line no-undef
@@ -29,18 +30,12 @@ const fetchTopScores = () => {
 
 const fetchStats = () => {
   // eslint-disable-next-line no-undef
-  return Promise.resolve({
-    gamesPlayed: 119,
-    longestTime: [1, 42],
-    gamePlayTimes: [
-      ['One Minute', 38],
-      ['Five Minutes', 28],
-      ['Ten minutes', 18],
-      ['Thirty Minutes', 2],
-      ['One Hour', 4],
-      ['Hour Plus', 6]
-    ]
-  });
+  return fetch(`${BASE_URL}/api/v1/game/stats`)
+    .then(res => ([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if(!ok) throw 'unable to post new game';
+      return json;
+    });
 };
 
 export {
