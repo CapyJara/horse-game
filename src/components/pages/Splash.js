@@ -12,10 +12,9 @@ const Splash = ({ history }) => {
   const dispatch = useDispatch();
   
   useEffect(() => {
-    console.log('hi');
     if(!didLand) dispatch(reset());
     didLand = true;
-  });
+  }, [didLand]);
 
   return (
     <section className={styles.Splash}>
