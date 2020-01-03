@@ -16,6 +16,7 @@ export default function App() {
           <Route exact path="/" component={Splash} />
           <Route path="/leader/:num/:name/:score" component={LeaderBoard} />
           <Route path="/leader/:num/" component={LeaderBoard} />
+          <Route path="/stats" component={LeaderBoard} />
         </Switch>
       </Router>
     </section>
