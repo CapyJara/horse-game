@@ -9,7 +9,8 @@ import { reset } from '../../actions/horseActions';
 
 const Header = ({ lines, history }) => {
   const dispatch = useDispatch();
-  const page = history.location.pathname.includes('leader') ? 'leader' : 'game';
+  const page = history.location.pathname.slice(1);
+  console.log(page);
   
   const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
   const [badge, setBadge] = useState(achievement(lines));
@@ -39,7 +40,7 @@ const Header = ({ lines, history }) => {
         <Link to="/" onClick={() => dispatch(reset())}>{header}</Link>
       </header>
 
-      {page === 'game' &&
+      {page === '' &&
       <section> 
         <span>
           <h2>{lines}</h2>
@@ -47,7 +48,7 @@ const Header = ({ lines, history }) => {
         </span>
       </section>}
 
-      {page === 'leader' && 
+      {(page === 'leader' || page === 'stats') && 
       <Burger/>}
     </div>
   );
