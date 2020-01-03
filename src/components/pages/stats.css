@@ -1,0 +1,51 @@
+.Stats {
+  display: grid;
+  grid-template-rows: 15% 1fr;
+  height: 95vh;
+  width: 100%;
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    h2 {
+      margin: 1em;
+      text-align: center;
+      font-size: 1.3em;
+    }
+  }
+}
+
+.Data {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.Chart-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 2em;
+
+  header {
+    font-size: 1.5em;
+  }
+
+  section {
+    margin: 1em;
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .Chart-Container {
+    section {
+      width: 50vw
+    }
+  }
+}

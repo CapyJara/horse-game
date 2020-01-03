@@ -22,7 +22,7 @@ export const [
 
 export const [
   setStats,
-  SET_STATES,
-  SET_STATES_PENDING,
-  SET_STATES_ERROR
-] = createAction('SET_STATES', fetchStats);
+  SET_STATS,
+  SET_STATS_PENDING,
+  SET_STATS_ERROR
+] = createAction('SET_STATS', fetchStats);

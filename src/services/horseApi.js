@@ -17,7 +17,7 @@ const postGame = (body) => {
     });
 };
 
-const fetchTopScores = (num) => {
+const fetchTopScores = () => {
   // eslint-disable-next-line no-undef
   return fetch(`${BASE_URL}/api/v1/game/top/100`)
     .then(res => ([res.ok, res.json()]))
@@ -30,13 +30,15 @@ const fetchTopScores = (num) => {
 const fetchStats = () => {
   // eslint-disable-next-line no-undef
   return Promise.resolve({
-    times: [
-      { 'one': 38 },
-      { 'five': 28 },
-      { 'ten': 18 },
-      { 'thirty': 2 },
-      { 'hour': 4 }, 
-      { 'hourPlus': 6 }
+    gamesPlayed: 119,
+    longestTime: [1, 42],
+    gamePlayTimes: [
+      ['One Minute', 38],
+      ['Five Minutes', 28],
+      ['Ten minutes', 18],
+      ['Thirty Minutes', 2],
+      ['One Hour', 4],
+      ['Hour Plus', 6]
     ]
   });
 };

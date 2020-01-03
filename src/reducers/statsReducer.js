@@ -7,9 +7,9 @@ const initialState = {
 };
 
 const statsActions = {
-  GET_STATS: (state, action) => success(state, action, 'statistics'),
-  GET_STATS_PENDING: (state) => pending(state),
-  GET_STATS_ERROR: (state, action) => error(state, action)
+  SET_STATS: (state, action) => success(state, action, 'statistics'),
+  SET_STATS_PENDING: (state) => pending(state),
+  SET_STATS_ERROR: (state, action) => error(state, action)
 };
 
 export default function reducer(state = initialState, action) {

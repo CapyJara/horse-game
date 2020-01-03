@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import Splash from '../components/pages/Splash';
 import LeaderBoard from './pages/LeaderBoard';
+import Stats from './pages/Stats';
 import styles from './app.css';
 
 export default function App() {
@@ -15,7 +16,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Splash} />
           <Route path="/leader" component={LeaderBoard} />
-          <Route path="/stats" component={LeaderBoard} />
+          <Route path="/stats" component={Stats} />
         </Switch>
       </Router>
     </section>

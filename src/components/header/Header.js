@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import styles from './header.css';
 import { achievement } from '../../../assets/badges';
 import Burger from '../burger/Burger';
-import { reset } from '../../actions/horseActions';
 
 const Header = ({ lines, history }) => {
-  const dispatch = useDispatch();
   const page = history.location.pathname.slice(1);
-  console.log(page);
-  
-  const header = lines >= 0 ? 'How Long Can You Scroll?' : 'Play Again';
+  const headerOptions = {
+    '': 'How Long Can You Scroll?',
+    leader: 'Top 100 Scores',
+    stats: 'Statistics'
+  };
+  const header = headerOptions[page];
   const [badge, setBadge] = useState(achievement(lines));
   const [levelUp, setLevelUp] = useState('');
 
@@ -36,9 +36,7 @@ const Header = ({ lines, history }) => {
         </div>}
       </section>
 
-      <header>
-        <Link to="/" onClick={() => dispatch(reset())}>{header}</Link>
-      </header>
+      <header>{header}</header>
 
       {page === '' &&
       <section> 

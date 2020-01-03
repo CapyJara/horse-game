@@ -22,7 +22,6 @@ const LeaderBoard = () => {
     <div className={styles.LeaderBoard}>
       <Header/>
       {scores && <section>
-        <h1>Top 100 Scores All Time</h1>
         {scores && <Scores scores={scores} codeName={name} newScore={score} />}
       </section>}
     </div>
