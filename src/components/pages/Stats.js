@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../header/Header';
 import styles from './stats.css';
@@ -9,15 +9,17 @@ import Chart from 'chart.js';
 const Stats = () => {
   const dispatch = useDispatch();
   const stats = useSelector(getStats);
-
+  const [, updateState] = useState(false);
+  var ctx = document.getElementById('myChart');
+  
   useEffect(() => {
     if(!stats) dispatch(setStats());
+    if(!ctx) updateState(true);
   });
 
-  if(stats) {
+  if(stats && ctx) {
     const labels = stats.gamePlayTimes.map(i => i[0]);
     const data = stats.gamePlayTimes.map(i => i[1]);
-    var ctx = document.getElementById('myChart');
     // eslint-disable-next-line no-unused-vars
     let myBarChart = new Chart(ctx, {
       type: 'bar',
@@ -51,6 +53,11 @@ const Stats = () => {
             ticks: {
               beginAtZero: true,
               fontColor: 'white'
+            },
+            scaleLabel: {
+              display: true,
+              labelString: 'Games',
+              fontColor: 'white'
             }
           }],
           xAxes: [{
@@ -66,6 +73,7 @@ const Stats = () => {
     });
   }
 
+
   return (
     <div className={styles.Stats}>
       <Header/>
@@ -75,7 +83,7 @@ const Stats = () => {
       <section>
         <section>
           <h2>Games Played</h2>
-          <p>{stats.gamesPlayed}</p>
+          <p>{stats.numberOfGames}</p>
           <h2>Longest Game Played</h2>
           <p>{stats.longestGame[0]} Hour {stats.longestGame[1]} Minutes</p>
         </section>
@@ -83,7 +91,7 @@ const Stats = () => {
         }
 
         <div className={styles['Chart-Container']}>
-          <h2>Time Spent Playing Horse Game</h2>
+          <h2>Time Spent Playing a Single Game</h2>
           <section>
             <canvas id="myChart" height="200"></canvas>
           </section>

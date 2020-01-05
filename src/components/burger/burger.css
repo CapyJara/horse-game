@@ -11,13 +11,13 @@
   .Burger-Slice {
     height: .3em;
     width: 2em;
-    background: yellow;
+    background: rgb(155, 48, 62);
     margin: .1em;
     border-radius: 1em;
   }
 
   .Menu {
-    background: yellow;
+    background: rgb(155, 48, 62);
     position: absolute;
     top: 0;
     width: 15em;
@@ -38,11 +38,11 @@
       align-content: center;
       font-size: 1.5em;
       text-decoration: none;
-      color: black;
+      color: rgb(255, 255, 255);
     }
 
     .Selected {
-      color: blue;
+      color: rgb(83, 209, 199);
     }
     
     p {
@@ -54,7 +54,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: red;
+      background: rgb(75, 11, 19);
     }
 }
 
