@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import Score from './Score';
 import styles from './scores.css';
+import { getNewGame } from '../../selectors/horseSelectors';
 
 const Scores = ({ scores, codeName, newScore }) => {
   const [message, setMessage] = useState('Sorry, you didn\'t make the top 100 :(');
+  const currentGame = useSelector(getNewGame);
 
   useEffect(() => {
     const currentScore = document.querySelector(`.${styles.NewGame}`);
@@ -37,9 +40,9 @@ const Scores = ({ scores, codeName, newScore }) => {
       <ul>
         {scoreList}
       </ul>
-      <section>
+      {currentGame && <section>
         <h2>{message}</h2>
-      </section>
+      </section>}
     </div>
   );
 };
