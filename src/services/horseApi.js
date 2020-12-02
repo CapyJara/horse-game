@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-const BASE_URL = 'http://horse-game.herokuapp.com';
+const BASE_URL = 'http://ec2-34-221-16-164.us-west-2.compute.amazonaws.com';
 // const BASE_URL = 'http://localhost:7891';
 
 const postGame = (body) => {
